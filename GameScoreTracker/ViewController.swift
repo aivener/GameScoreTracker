@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameSelectionViewController.swift
 //  GameScoreTracker
 //
 //  Created by Allie Ivener on 7/22/19.
@@ -11,7 +11,7 @@ import FirebaseCore
 import FirebaseFirestore
 import Pods_GameScoreTracker
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class GameSelectionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var db: Firestore!
     
@@ -63,4 +63,3 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return self.gamePickerData[row]
     }
 }
-

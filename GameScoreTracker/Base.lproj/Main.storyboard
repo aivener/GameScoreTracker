@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Gbx-JH-SjX">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,15 +10,15 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game Selection View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GameScoreTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GameSelectionViewController" customModule="GameScoreTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gag-Ru-QBa">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gag-Ru-QBa" userLabel="GameSelectionStackView">
                                 <rect key="frame" x="47" y="340" width="320" height="216"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VsA-r3-KCS">
@@ -26,19 +26,102 @@
                                     </pickerView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick a Game" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqV-1V-Ern">
+                                <rect key="frame" x="101" y="277" width="212.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-wy-HPz">
+                                <rect key="frame" x="176.5" y="571" width="61" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="nZK-Qq-Ak7" kind="show" id="owY-Gn-OnP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gag-Ru-QBa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aul-iK-7Yx"/>
-                            <constraint firstItem="gag-Ru-QBa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QCB-RY-CUc"/>
+                            <constraint firstItem="u5L-wy-HPz" firstAttribute="top" secondItem="gag-Ru-QBa" secondAttribute="bottom" constant="15" id="bQg-QV-jj2"/>
+                            <constraint firstItem="gag-Ru-QBa" firstAttribute="top" secondItem="fqV-1V-Ern" secondAttribute="bottom" constant="15" id="hbx-2M-b49"/>
+                            <constraint firstItem="fqV-1V-Ern" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pP4-7b-xuy"/>
+                            <constraint firstItem="u5L-wy-HPz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rIP-Oc-jFa"/>
+                            <constraint firstItem="gag-Ru-QBa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rj7-Zv-ivh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="FYg-sf-dUg"/>
                     <connections>
                         <outlet property="gamePicker" destination="VsA-r3-KCS" id="S87-j7-CZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="101.78571428571428"/>
+        </scene>
+        <!--Player Selection View Controller-->
+        <scene sceneID="fPt-Yu-M43">
+            <objects>
+                <viewController storyboardIdentifier="PlayerSelectionViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nZK-Qq-Ak7" customClass="PlayerSelectionViewController" customModule="GameScoreTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1sT-Dy-o5v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pick Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-AD-cd6">
+                                <rect key="frame" x="104.5" y="277" width="205.5" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-CL-79I">
+                                <rect key="frame" x="176.5" y="571" width="61" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="pickPlayersButton:" destination="nZK-Qq-Ak7" eventType="touchUpInside" id="rzc-be-qic"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="92f-eM-vpJ" userLabel="PlayerSelectionStackView">
+                                <rect key="frame" x="47" y="340" width="320" height="216"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sav-Pu-z27">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                    </pickerView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="11w-ki-RWk"/>
+                            <constraint firstItem="UDp-CL-79I" firstAttribute="top" secondItem="92f-eM-vpJ" secondAttribute="bottom" constant="15" id="BDo-6k-fji"/>
+                            <constraint firstItem="oPR-AD-cd6" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="MN2-Gt-ILH"/>
+                            <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="iro-QM-dEI"/>
+                            <constraint firstItem="UDp-CL-79I" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="v0I-Aw-kRS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XCP-LT-SQs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNu-m3-0Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2042.0289855072465" y="101.78571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="txX-Sg-GTY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gbx-JH-SjX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iRk-0X-FmN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iAl-eO-gzG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ija-Zf-tDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="101.78571428571428"/>
         </scene>
