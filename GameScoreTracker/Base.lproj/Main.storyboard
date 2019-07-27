@@ -69,21 +69,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pick Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-AD-cd6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick Players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPR-AD-cd6">
                                 <rect key="frame" x="104.5" y="277" width="205.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-CL-79I">
-                                <rect key="frame" x="176.5" y="571" width="61" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UDp-CL-79I" userLabel="Add Player">
+                                <rect key="frame" x="137.5" y="571" width="139" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Add Player"/>
                                 <connections>
                                     <action selector="pickPlayersButton:" destination="nZK-Qq-Ak7" eventType="touchUpInside" id="rzc-be-qic"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="92f-eM-vpJ" userLabel="PlayerSelectionStackView">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="92f-eM-vpJ" userLabel="PlayerSelectionStackView">
                                 <rect key="frame" x="47" y="340" width="320" height="216"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sav-Pu-z27">
@@ -94,14 +94,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="11w-ki-RWk"/>
+                            <constraint firstItem="92f-eM-vpJ" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="9NO-oQ-BIN"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="top" secondItem="92f-eM-vpJ" secondAttribute="bottom" constant="15" id="BDo-6k-fji"/>
                             <constraint firstItem="oPR-AD-cd6" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="MN2-Gt-ILH"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="iro-QM-dEI"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="v0I-Aw-kRS"/>
+                            <constraint firstItem="92f-eM-vpJ" firstAttribute="centerY" secondItem="1sT-Dy-o5v" secondAttribute="centerY" id="yap-9N-wMR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XCP-LT-SQs"/>
                     </view>
+                    <connections>
+                        <outlet property="playerPicker" destination="sav-Pu-z27" id="Zgu-q4-fXh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNu-m3-0Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
