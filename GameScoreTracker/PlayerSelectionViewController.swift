@@ -19,6 +19,8 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     let playersDownloader = PlayersDownloader()
     @IBOutlet weak var playerPicker: UIPickerView!
     
+    @IBOutlet weak var selectedPlayersText: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,6 +66,8 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBAction func pickPlayersButton(_ sender: Any) {
         print("players picked")
+        let selectedRow = playerPicker.selectedRow(inComponent: 0)
+        selectedPlayersText.text.append(playerPickerData[selectedRow])
     }
     
 }

@@ -91,12 +91,24 @@
                                     </pickerView>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Selected Players:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Neq-jN-M5b" userLabel="SelectedPlayersTextView">
+                                <rect key="frame" x="87" y="658" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="adi-q0-lbG"/>
+                                    <constraint firstAttribute="width" constant="240" id="gvn-el-0fB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="9NO-oQ-BIN"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="top" secondItem="92f-eM-vpJ" secondAttribute="bottom" constant="15" id="BDo-6k-fji"/>
+                            <constraint firstItem="Neq-jN-M5b" firstAttribute="top" secondItem="UDp-CL-79I" secondAttribute="bottom" constant="39" id="FdI-jq-ohf"/>
                             <constraint firstItem="oPR-AD-cd6" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="MN2-Gt-ILH"/>
+                            <constraint firstItem="Neq-jN-M5b" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="bE5-e6-4Os"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="iro-QM-dEI"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="v0I-Aw-kRS"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="centerY" secondItem="1sT-Dy-o5v" secondAttribute="centerY" id="yap-9N-wMR"/>
@@ -105,6 +117,7 @@
                     </view>
                     <connections>
                         <outlet property="playerPicker" destination="sav-Pu-z27" id="Zgu-q4-fXh"/>
+                        <outlet property="selectedPlayersText" destination="Neq-jN-M5b" id="rlm-dH-IFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lNu-m3-0Hz" userLabel="First Responder" sceneMemberID="firstResponder"/>
