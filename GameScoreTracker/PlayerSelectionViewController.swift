@@ -21,6 +21,9 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBOutlet weak var selectedPlayersText: UITextView!
     
+    @IBOutlet weak var gameNameLabel: UILabel!
+    var currentGameName: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +36,8 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         self.playerPicker.dataSource = self
         
         initializePlayers()
+        
+        gameNameLabel.text = currentGameName
     }
     
     func initializePlayers() {
@@ -70,4 +75,13 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
         selectedPlayersText.text.append(playerPickerData[selectedRow])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let scorecardViewController = segue.destination as? ScorecardViewController //,
+//            let index = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        // just pass through selected game name
+        scorecardViewController.currentGameName = currentGameName
+    }
 }

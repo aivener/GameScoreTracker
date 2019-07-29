@@ -33,9 +33,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5L-wy-HPz">
-                                <rect key="frame" x="176.5" y="571" width="61" height="48"/>
+                                <rect key="frame" x="124.5" y="571" width="165" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Select Game"/>
                                 <connections>
                                     <segue destination="nZK-Qq-Ak7" kind="show" id="owY-Gn-OnP"/>
                                 </connections>
@@ -55,6 +55,7 @@
                     <navigationItem key="navigationItem" id="FYg-sf-dUg"/>
                     <connections>
                         <outlet property="gamePicker" destination="VsA-r3-KCS" id="S87-j7-CZZ"/>
+                        <outlet property="selectGameButton" destination="u5L-wy-HPz" id="JSB-Ix-qHG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,21 +102,40 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIb-SD-K4e" userLabel="GameNameLabel">
+                                <rect key="frame" x="120" y="113" width="174.5" height="37"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lCM-ID-ch0" userLabel="StartGameButton">
+                                <rect key="frame" x="157" y="808" width="100" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Start game"/>
+                                <connections>
+                                    <segue destination="X1e-Uz-Zuf" kind="show" id="5hs-N2-Luq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="LIb-SD-K4e" firstAttribute="top" secondItem="XCP-LT-SQs" secondAttribute="top" constant="25" id="15A-cP-DFh"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="9NO-oQ-BIN"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="top" secondItem="92f-eM-vpJ" secondAttribute="bottom" constant="15" id="BDo-6k-fji"/>
+                            <constraint firstItem="lCM-ID-ch0" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="F2J-03-7mE"/>
                             <constraint firstItem="Neq-jN-M5b" firstAttribute="top" secondItem="UDp-CL-79I" secondAttribute="bottom" constant="39" id="FdI-jq-ohf"/>
                             <constraint firstItem="oPR-AD-cd6" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="MN2-Gt-ILH"/>
                             <constraint firstItem="Neq-jN-M5b" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="bE5-e6-4Os"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="top" secondItem="oPR-AD-cd6" secondAttribute="bottom" constant="15" id="iro-QM-dEI"/>
+                            <constraint firstItem="LIb-SD-K4e" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="kTN-8s-Q4B"/>
+                            <constraint firstAttribute="bottom" secondItem="lCM-ID-ch0" secondAttribute="bottom" constant="50" id="nxE-6v-J05"/>
                             <constraint firstItem="UDp-CL-79I" firstAttribute="centerX" secondItem="1sT-Dy-o5v" secondAttribute="centerX" id="v0I-Aw-kRS"/>
                             <constraint firstItem="92f-eM-vpJ" firstAttribute="centerY" secondItem="1sT-Dy-o5v" secondAttribute="centerY" id="yap-9N-wMR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XCP-LT-SQs"/>
                     </view>
                     <connections>
+                        <outlet property="gameNameLabel" destination="LIb-SD-K4e" id="wC2-Lv-XKN"/>
                         <outlet property="playerPicker" destination="sav-Pu-z27" id="Zgu-q4-fXh"/>
                         <outlet property="selectedPlayersText" destination="Neq-jN-M5b" id="rlm-dH-IFv"/>
                     </connections>
@@ -141,6 +161,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ija-Zf-tDk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="101.78571428571428"/>
+        </scene>
+        <!--Scorecard View Controller-->
+        <scene sceneID="gYp-Ax-Iqy">
+            <objects>
+                <viewController storyboardIdentifier="ScorecardViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X1e-Uz-Zuf" customClass="ScorecardViewController" customModule="GameScoreTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dTh-Tf-MFx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n22-Kl-pqS" userLabel="GameNameLabel">
+                                <rect key="frame" x="120" y="113" width="174" height="37"/>
+                                <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n22-Kl-pqS" firstAttribute="top" secondItem="eJ3-8t-nyH" secondAttribute="top" constant="25" id="ADd-tS-tyo"/>
+                            <constraint firstItem="n22-Kl-pqS" firstAttribute="centerX" secondItem="dTh-Tf-MFx" secondAttribute="centerX" id="M6J-Ub-IjM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eJ3-8t-nyH"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameNameLabel" destination="n22-Kl-pqS" id="Tmh-Ym-iXe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="96g-vF-d8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3005.7971014492755" y="101.78571428571428"/>
         </scene>
     </scenes>
 </document>

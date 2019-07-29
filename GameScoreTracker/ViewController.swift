@@ -18,6 +18,7 @@ class GameSelectionViewController: UIViewController, UIPickerViewDelegate, UIPic
     var gamePickerData: [String] = [String]()
     let gameLibraryDownloader = GameLibraryDownloader()
     @IBOutlet weak var gamePicker: UIPickerView!
+    @IBOutlet weak var selectGameButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,5 +62,15 @@ class GameSelectionViewController: UIViewController, UIPickerViewDelegate, UIPic
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.gamePickerData[row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let playerSelectionViewController = segue.destination as? PlayerSelectionViewController //,
+            // let index = tableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        let selectedRow = gamePicker.selectedRow(inComponent: 0)
+        playerSelectionViewController.currentGameName = gamePickerData[selectedRow]
     }
 }
