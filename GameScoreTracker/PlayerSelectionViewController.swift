@@ -15,7 +15,7 @@ import Pods_GameScoreTracker
 class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     var db: Firestore!
     
-    var playerPickerData: [String] = [String]()
+    var playerPickerData: [Player] = [Player]()
     let playersDownloader = PlayersDownloader()
     @IBOutlet weak var playerPicker: UIPickerView!
     
@@ -23,6 +23,8 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBOutlet weak var gameNameLabel: UILabel!
     var currentGameName: String?
+    
+    var selectedPlayers: [Player] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,8 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
                 return
             }
             players.forEach{ player in
-                self.playerPickerData.append(player.get("displayName") as! String)
+                let currPlayer = Player(playerId: player.documentID, displayName: player.get("displayName") as! String)
+                self.playerPickerData.append(currPlayer)
             }
             self.playerPicker.reloadAllComponents()
         }
@@ -66,13 +69,15 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
     
     // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.playerPickerData[row]
+        return self.playerPickerData[row].displayName
     }
     
     @IBAction func pickPlayersButton(_ sender: Any) {
         print("players picked")
         let selectedRow = playerPicker.selectedRow(inComponent: 0)
-        selectedPlayersText.text.append(playerPickerData[selectedRow])
+        let selectedPlayerName = playerPickerData[selectedRow]
+        selectedPlayersText.text.append(selectedPlayerName.displayName)
+        selectedPlayers.append(selectedPlayerName)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -82,6 +87,7 @@ class PlayerSelectionViewController: UIViewController, UIPickerViewDelegate, UIP
                 return
         }
         // just pass through selected game name
-        scorecardViewController.currentGameName = currentGameName
+        scorecardViewController.gameName = currentGameName
+        scorecardViewController.players = selectedPlayers
     }
 }
